@@ -8,7 +8,17 @@
 // Example:
 // reverse("skoob") --> "books"
 
+function reverse (theString) {
 
+    var splitString = theString.split('')
+
+    var reverseString = splitString.reverse('')
+
+    var theStringReversed = reverseString.join('')
+
+    return theStringReversed
+}
+reverse('skoob')
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function "findLongestWord" that takes a string of words and returns
@@ -18,6 +28,23 @@
 // Example:
 // findLongestWord('a book full of dogs') --> 'book'
 
+function findLongestWord (theString) {
+
+    var splitString = theString.split(' ')
+    var longestWord = ''
+    var myAry = []
+    
+    //Creating Array with string
+    for (var i = 0; i < splitString.length; i++) {
+        myAry.push(splitString[i])
+            if (myAry[i].length > longestWord.length) {
+                longestWord = myAry[i]
+            }   
+    }
+    return longestWord
+    
+}
+findLongestWord('word')
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -28,7 +55,17 @@
 // Example:
 // nicer('mom get the heck in here and bring me a darn sandwich.')
 // > 'mom get the in here and bring me a sandwich.'
+function nicer (theString) {
 
+    var newString = theString.replace('heck','')
+    var newString1 = newString.replace('darn','')
+    var newString2 = newString1.replace('dang','')
+    var newString3 = newString2.replace('crappy','')
+    //replaces the double whitespace with one whitespace
+    return newString3.replace(/  +/g, ' ')
+
+}
+nicer('mom get the heck in here and bring me a darn sandwich.')
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -40,8 +77,18 @@
 // capitalizeAll('hello world') --> 'Hello World'
 // capitalizeAll('every day is like sunday') --> 'Every Day Is Like Sunday'
 
+function capitalizeAll (theString) {
 
-
+    var theNewString = ''
+    var splitString = theString.split(' ')
+    for (var i = 0; i < splitString.length; i++) {
+        theNewString = theNewString + (splitString[i].charAt(0).toUpperCase()) + (splitString[i].substring(1,splitString[i].length)) + ' '
+    }
+    return theNewString.substring(0,(theNewString.length) - 1 ) 
+    
+    
+} 
+capitalizeAll('hello world')
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function called "split" that does the same thing as String.split
 // It should take two inputs: (1) a string and (2) a delimiter string
@@ -52,3 +99,15 @@
 // split('a-b-c', '-') --> ['a', 'b', 'c']
 // split('APPLExxBANANAxxCHERRY', 'xx') --> ['APPLE', 'BANANA', 'CHERRY']
 // split('xyz', 'r') --> ['xyz']
+
+function split (myString, delimiter) {
+    var myAry = []
+    for (var i = 0; i < myString.length; i++) {
+        if (myString.charAt(i).substring(i,i+1) == delimiter) {
+            myAry.push(myString.substring(i,i + 1))
+        }
+    }//for
+    return myAry
+
+}
+console.log( split('APPLExBANANAxCHERRY', 'x') )
