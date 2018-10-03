@@ -9,14 +9,13 @@
 // reverse("skoob") --> "books"
 
 function reverse (theString) {
+  var splitString = theString.split('')
 
-    var splitString = theString.split('')
+  var reverseString = splitString.reverse('')
 
-    var reverseString = splitString.reverse('')
+  var theStringReversed = reverseString.join('')
 
-    var theStringReversed = reverseString.join('')
-
-    return theStringReversed
+  return theStringReversed
 }
 reverse('skoob')
 
@@ -29,23 +28,20 @@ reverse('skoob')
 // findLongestWord('a book full of dogs') --> 'book'
 
 function findLongestWord (theString) {
+  var splitString = theString.split(' ')
+  var longestWord = ''
+  var myAry = []
 
-    var splitString = theString.split(' ')
-    var longestWord = ''
-    var myAry = []
-    
-    //Creating Array with string
-    for (var i = 0; i < splitString.length; i++) {
-        myAry.push(splitString[i])
-            if (myAry[i].length > longestWord.length) {
-                longestWord = myAry[i]
-            }   
+  // Creating Array with string
+  for (var i = 0; i < splitString.length; i++) {
+    myAry.push(splitString[i])
+    if (myAry[i].length > longestWord.length) {
+      longestWord = myAry[i]
     }
-    return longestWord
-    
+  }
+  return longestWord
 }
 findLongestWord('word')
-
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function called "nicer"
@@ -56,17 +52,14 @@ findLongestWord('word')
 // nicer('mom get the heck in here and bring me a darn sandwich.')
 // > 'mom get the in here and bring me a sandwich.'
 function nicer (theString) {
-
-    var newString = theString.replace('heck','')
-    var newString1 = newString.replace('darn','')
-    var newString2 = newString1.replace('dang','')
-    var newString3 = newString2.replace('crappy','')
-    //replaces the double whitespace with one whitespace
-    return newString3.replace(/  +/g, ' ')
-
+  var newString = theString.replace('heck', '')
+  var newString1 = newString.replace('darn', '')
+  var newString2 = newString1.replace('dang', '')
+  var newString3 = newString2.replace('crappy', '')
+  // replaces the double whitespace with one whitespace
+  return newString3.replace(/  +/g, ' ')
 }
 nicer('mom get the heck in here and bring me a darn sandwich.')
-
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function called "capitalizeAll"
@@ -78,16 +71,13 @@ nicer('mom get the heck in here and bring me a darn sandwich.')
 // capitalizeAll('every day is like sunday') --> 'Every Day Is Like Sunday'
 
 function capitalizeAll (theString) {
-
-    var theNewString = ''
-    var splitString = theString.split(' ')
-    for (var i = 0; i < splitString.length; i++) {
-        theNewString = theNewString + (splitString[i].charAt(0).toUpperCase()) + (splitString[i].substring(1,splitString[i].length)) + ' '
-    }
-    return theNewString.substring(0,(theNewString.length) - 1 ) 
-    
-    
-} 
+  var theNewString = ''
+  var splitString = theString.split(' ')
+  for (var i = 0; i < splitString.length; i++) {
+    theNewString = theNewString + (splitString[i].charAt(0).toUpperCase()) + (splitString[i].substring(1, splitString[i].length)) + ' '
+  }
+  return theNewString.substring(0, (theNewString.length) - 1)
+}
 capitalizeAll('hello world')
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function called "split" that does the same thing as String.split
@@ -101,26 +91,23 @@ capitalizeAll('hello world')
 // split('xyz', 'r') --> ['xyz']
 
 function split (myString, delimiter) {
+  let resultArray = []
+  // becasue delimeter is a 2 character we have to search for delmeter
 
-    let resultArray = []
-    //becasue delimeter is a 2 character we have to search for delmeter
+  let delimiterIdx = myString.indexOf(delimiter)
 
-    let delimiterIdx = myString.indexOf(delimiter)
+  while (delimiterIdx !== -1) {
+    const chunk = myString.substring(0, delimiterIdx)
+    resultArray.push(chunk)
 
-   while (delimiterIdx !== -1) {
-        const chunk = myString.substring(0, delimiterIdx)
-        resultArray.push(chunk)
-    
-        myString = myString.substring(chunk.length)
-        myString = myString.substring(delimiter.length)
+    myString = myString.substring(chunk.length)
+    myString = myString.substring(delimiter.length)
 
-        delimiterIdx = myString.indexOf(delimiter)
-    }
+    delimiterIdx = myString.indexOf(delimiter)
+  }
 
-    resultArray.push(myString)
-    console.log(myString)
-    console.log(resultArray)
-
-
+  resultArray.push(myString)
+  console.log(myString)
+  console.log(resultArray)
 }
 split('APPLExxBANANAxxCHERRY', 'xx')
