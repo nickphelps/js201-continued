@@ -101,13 +101,26 @@ capitalizeAll('hello world')
 // split('xyz', 'r') --> ['xyz']
 
 function split (myString, delimiter) {
-    var myAry = []
-    for (var i = 0; i < myString.length; i++) {
-        if (myString.charAt(i).substring(i,i+1) == delimiter) {
-            myAry.push(myString.substring(i,i + 1))
-        }
-    }//for
-    return myAry
+
+    let resultArray = []
+    //becasue delimeter is a 2 character we have to search for delmeter
+
+    let delimiterIdx = myString.indexOf(delimiter)
+
+   while (delimiterIdx !== -1) {
+        const chunk = myString.substring(0, delimiterIdx)
+        resultArray.push(chunk)
+    
+        myString = myString.substring(chunk.length)
+        myString = myString.substring(delimiter.length)
+
+        delimiterIdx = myString.indexOf(delimiter)
+    }
+
+    resultArray.push(myString)
+    console.log(myString)
+    console.log(resultArray)
+
 
 }
-console.log( split('APPLExBANANAxCHERRY', 'x') )
+split('APPLExxBANANAxxCHERRY', 'xx')
