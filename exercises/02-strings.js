@@ -92,7 +92,7 @@ capitalizeAll('hello world')
 
 function split (myString, delimiter) {
   let resultArray = []
-  // becasue delimeter is a 2 character we have to search for delmeter
+  // becasue delimeter is a 2 characters we have to search for delmeter
 
   let delimiterIdx = myString.indexOf(delimiter)
 
@@ -107,7 +107,6 @@ function split (myString, delimiter) {
   }
 
   resultArray.push(myString)
-  console.log(myString)
-  console.log(resultArray)
+  return resultArray
 }
-split('APPLExxBANANAxxCHERRY', 'xx')
+split('a-b-c', '-')
