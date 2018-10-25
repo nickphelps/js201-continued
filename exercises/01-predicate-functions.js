@@ -151,4 +151,4 @@ function isCapitalCity (myState, myCapital) {
     return true
   }
 }
-console.log(isCapitalCity('Texas', 'Houston'))
+console.log(isCapitalCity('Texas', 'Austin'))

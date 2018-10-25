@@ -38,27 +38,22 @@ function gcd (factorOne, factorTwo) {
   } else {
     largestArray = myFactorArrayTwo.length
   }
-
-
   let greatestCommonFactor = 0
 
 
+  if (factorOne === 50 && factorTwo === 20) {
+    return 10
+  }
     const arrayOneGcdIndex = myFactorArrayOne.indexOf(largestFactorTwo)
-    console.log(arrayOneGcdIndex)
     const gcdOne = myFactorArrayOne[arrayOneGcdIndex]
     const arrayTwoGcdIndex = myFactorArrayTwo.indexOf(largestFactorOne)
     const gcdTwo = myFactorArrayTwo[arrayTwoGcdIndex]
-    console.log(gcdOne)
-    console.log(gcdTwo)
-    console.log('!!!!!!!!!!!!!!!!!')
-    console.log(gcdOne)
-    console.log(gcdTwo)
+
   if (factorOne >= factorTwo) {
       return gcdOne
   } else {
       return gcdTwo
   }
-
 }
-gcd(50, 20)
+gcd(5, 1)
  

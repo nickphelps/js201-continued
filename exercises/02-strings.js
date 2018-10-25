@@ -10,9 +10,9 @@
 
 function reverse (theString) {
   var splitString = theString.split('')
-
+// console.log(splitString)
   var reverseString = splitString.reverse('')
-
+// console.log(reverseString)
   var theStringReversed = reverseString.join('')
 
   return theStringReversed
@@ -33,15 +33,18 @@ function findLongestWord (theString) {
   var myAry = []
 
   // Creating Array with string
+
   for (var i = 0; i < splitString.length; i++) {
+    //Putting splitstring into myAry
     myAry.push(splitString[i])
+    //Comparing length of words
     if (myAry[i].length > longestWord.length) {
       longestWord = myAry[i]
     }
   }
   return longestWord
 }
-findLongestWord('word')
+findLongestWord('a wookie of words')
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Write a function called "nicer"
@@ -51,6 +54,7 @@ findLongestWord('word')
 // Example:
 // nicer('mom get the heck in here and bring me a darn sandwich.')
 // > 'mom get the in here and bring me a sandwich.'
+
 function nicer (theString) {
   var newString = theString.replace('heck', '')
   var newString1 = newString.replace('darn', '')
@@ -72,8 +76,10 @@ nicer('mom get the heck in here and bring me a darn sandwich.')
 
 function capitalizeAll (theString) {
   var theNewString = ''
+  //Seperates the words
   var splitString = theString.split(' ')
   for (var i = 0; i < splitString.length; i++) {
+    //Cap first letter in every word and then add on the rest of the string
     theNewString = theNewString + (splitString[i].charAt(0).toUpperCase()) + (splitString[i].substring(1, splitString[i].length)) + ' '
   }
   return theNewString.substring(0, (theNewString.length) - 1)
@@ -92,10 +98,11 @@ capitalizeAll('hello world')
 
 function split (myString, delimiter) {
   let resultArray = []
-  // becasue delimeter is a 2 characters we have to search for delmeter
+  // becasue delimeter is 2 characters we have to search for delmeter
 
   let delimiterIdx = myString.indexOf(delimiter)
 
+  //searches until finds delimiterInx
   while (delimiterIdx !== -1) {
     const chunk = myString.substring(0, delimiterIdx)
     resultArray.push(chunk)
